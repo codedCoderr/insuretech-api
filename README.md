@@ -39,8 +39,6 @@ $ yarn install
    DB_USERNAME=your_db_username
    DB_PASSWORD=your_db_password
    DB_NAME=insuretech
-
-   NODE_ENV=development
    ```
 
 2. Ensure your PostgreSQL database is running and the credentials in the `.env` file are correct.
