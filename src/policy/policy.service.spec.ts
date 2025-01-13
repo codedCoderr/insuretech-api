@@ -88,7 +88,7 @@ describe('PolicyService', () => {
       };
 
       pendingPolicyModel.findByPk.mockResolvedValue(pendingPolicy);
-      policyModel.findOne.mockResolvedValue(null); // No existing policy
+      policyModel.findOne.mockResolvedValue(null);
 
       const createdPolicy = {
         id: 1,
@@ -98,7 +98,7 @@ describe('PolicyService', () => {
         planId: pendingPolicy.planId,
       };
 
-      policyModel.create.mockResolvedValue(createdPolicy); // Mock the created policy
+      policyModel.create.mockResolvedValue(createdPolicy);
 
       const result = await service.activatePendingPolicy(pendingPolicyId);
 
@@ -119,7 +119,7 @@ describe('PolicyService', () => {
       expect(pendingPolicy.deletedAt).toBeDefined();
       expect(result).toEqual(
         expect.objectContaining({ userId: 1, productId: 1 }),
-      ); // Ensure this matches the expected output
+      );
     });
 
     it('should throw BadRequestException if pendingPolicyId is invalid', async () => {
@@ -153,7 +153,7 @@ describe('PolicyService', () => {
       };
 
       pendingPolicyModel.findByPk.mockResolvedValue(pendingPolicy);
-      policyModel.findOne.mockResolvedValue({}); // Existing policy found
+      policyModel.findOne.mockResolvedValue({});
 
       await expect(
         service.activatePendingPolicy(pendingPolicyId),
@@ -179,7 +179,7 @@ describe('PolicyService', () => {
       const planId = 1;
       const activatedPolicies = [{ id: 1, userId: 1, productId: 1 }];
       policyModel.findAll.mockResolvedValue(activatedPolicies);
-      planModel.findByPk.mockResolvedValue({}); // Mock plan found
+      planModel.findByPk.mockResolvedValue({});
 
       const result = await service.fetchActivatedPolicies(planId);
 
@@ -199,7 +199,7 @@ describe('PolicyService', () => {
 
     it('should throw NotFoundException if planId is provided but not found', async () => {
       const planId = 1;
-      planModel.findByPk.mockResolvedValue(null); // Mock plan not found
+      planModel.findByPk.mockResolvedValue(null);
 
       await expect(service.fetchActivatedPolicies(planId)).rejects.toThrow(
         NotFoundException,

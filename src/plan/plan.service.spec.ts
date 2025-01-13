@@ -90,7 +90,7 @@ describe('PlanService', () => {
 
       expect(userModel.findByPk).toHaveBeenCalledWith(body.userId);
       expect(productModel.findByPk).toHaveBeenCalledWith(body.productId);
-      expect(user.walletBalance).toBe(40); // 100 - 60
+      expect(user.walletBalance).toBe(40);
       expect(planModel.create).toHaveBeenCalledWith({
         userId: user.id,
         productId: product.id,

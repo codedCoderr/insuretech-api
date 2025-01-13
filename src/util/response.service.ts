@@ -1,7 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { get, isNil, isEmpty } from 'lodash';
 import { Response } from 'express';
-// import { PaginationMetaData } from './pagination.service';
 
 export class ResponseObject<T> {
   code?: string;

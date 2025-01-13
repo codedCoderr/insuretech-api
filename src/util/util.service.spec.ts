@@ -25,7 +25,7 @@ describe('UtilService', () => {
 
     it('should return a string containing only uppercase letters and numbers', () => {
       const result = utilService.generatePolicyNumber();
-      const regex = /^[A-Z0-9]+$/; // Regex to match only uppercase letters and numbers
+      const regex = /^[A-Z0-9]+$/;
       expect(regex.test(result)).toBe(true);
     });
 
@@ -35,7 +35,7 @@ describe('UtilService', () => {
         const number = utilService.generatePolicyNumber();
         numbers.add(number);
       }
-      expect(numbers.size).toBeGreaterThan(900); // Expecting a good number of unique values
+      expect(numbers.size).toBeGreaterThan(900);
     });
   });
 });
