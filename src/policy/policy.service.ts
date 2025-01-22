@@ -62,7 +62,7 @@ export class PolicyService {
   }
 
   async fetchActivatedPolicies(planId?: number) {
-    if (planId !== undefined && isNaN(planId)) {
+    if (!planId || isNaN(planId)) {
       throw new BadRequestException('Plan ID must be a valid number');
     }
     if (planId) {
